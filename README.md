@@ -175,10 +175,6 @@ This project builds upon several outstanding open-source projects, including:
 
 - Montreal Forced Aligner (MFA)
 - Qwen3FA
-- Praat / Parselmouth
-- librosa
-- NumPy
-- SciPy
 
 We sincerely thank the authors and contributors of these projects.
 
