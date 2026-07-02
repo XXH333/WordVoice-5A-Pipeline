@@ -2,6 +2,10 @@
 
 <div align="center">
 
+<img src="pic/pipeline.png" width="95%" alt="WordVoice Pipeline"/>
+
+<br>
+
 [![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](#)
 [![DemoPage](https://img.shields.io/badge/DemoPage-WordVoice-yellow.svg)](https://xxh333.github.io/wordvoice-demo/)
 [![Dataset](https://img.shields.io/badge/Dataset-WordVoice--5A-green.svg)](#)
@@ -9,61 +13,296 @@
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Official linguistically-guided annotation pipeline for the WordVoice dataset**
+**Official linguistically-guided word-level annotation pipeline for the WordVoice dataset**
 
 </div>
 
 ---
 
+<div align="center">
+
+# 🌏 Language
+
+**🇨🇳 中文 | 🇺🇸 English**
+
+[跳转到中文](#-中文说明) ｜ [Jump to English](#-english)
+
+</div>
+
+---
+
+# 🇨🇳 中文说明
+
+## 概述
+
+**WordVoice Data Pipeline** 是 **WordVoice** 数据集官方发布的词级声学标注流水线，用于自动构建**大规模、高质量、词级声学数据集**，服务于可控 LLM Text-to-Speech（TTS）研究。
+
+不同于传统 Forced Alignment 仅提供时间戳，本项目融合了：
+
+- 双模型词对齐（Dual-model Alignment）
+- 边界优化（Boundary Refinement）
+- 多维韵律标注（Prosodic Annotation）
+
+能够自动生成 **WordVoice-5A** 等高质量词级数据集。
+
+目前支持：
+
+- ✅ 中文（Mandarin Chinese，`zh`）
+- ✅ 英文（English，`en`）
+
+---
+
+# ✨ 功能特点
+
+## 🎯 高精度词级对齐
+
+采用双模型联合对齐：
+
+- Montreal Forced Aligner (MFA)
+- Qwen3FA
+
+并进一步实现：
+
+- 双模型一致性检测
+- 自动过滤低置信度结果
+- 提升词边界准确率
+
+---
+
+## 🔍 边界优化
+
+基于响度信息进一步优化词边界：
+
+- 去除多余静音
+- 修正协同发音（Coarticulation）
+- 获得更加自然的词级切分
+
+---
+
+## 📊 五维声学标注
+
+每个词均生成以下五类标注：
+
+| 属性 | 描述 |
+|------|------|
+| ⏱ Duration | 词持续时间 |
+| ⏸ Boundary | 五级停顿类别（b0–b4） |
+| 🔊 Energy | 截断归一化后的音节核心能量 |
+| 🎵 Pitch | 双侧截断后的核心 F0 |
+| 📈 Tone | 基于16点多项式拟合得到的七类韵律形态 |
+
+---
+
+## 🌍 支持语言
+
+| Language | Status |
+|-----------|--------|
+| Mandarin Chinese | ✅ |
+| English | ✅ |
+
+未来将支持更多语言。
+
+---
+
+# 安装
+
+由于 **Montreal Forced Aligner (MFA)** 依赖 Kaldi 与多个 C++ 库，推荐使用 Conda 安装。
+
+## Step 1. 创建环境
+
+```bash
+conda create -n wordvoice-5a python=3.10 -y
+conda activate wordvoice-5a
+```
+
+## Step 2. 安装 MFA
+
+```bash
+conda install -c conda-forge montreal-forced-aligner=3.3.8 -y
+```
+
+## Step 3. 克隆仓库
+
+```bash
+git clone https://github.com/yourusername/wordvoice-data-pipeline.git
+
+cd wordvoice-data-pipeline
+```
+
+## Step 4. 安装依赖
+
+```bash
+pip install qwen-asr
+
+pip install -e .
+```
+
+---
+
+# 下载模型
+
+执行：
+
+```bash
+bash download_models.sh
+```
+
+脚本将自动下载所有模型及相关资源。
+
+---
+
+# 运行 Pipeline
+
+完整示例位于：
+
+```text
+test_demo/
+```
+
+目录结构：
+
+```text
+test_demo/
+├── audio_files/
+└── json_files/
+```
+
+直接运行：
+
+```bash
+bash data.sh
+```
+
+---
+
+# 引用
+
+如果本项目对你的研究有所帮助，请引用：
+
+```bibtex
+@article{wordvoice2026,
+  title={WordVoice: Linguistically-Guided Word-Level Acoustic Dataset for Controllable LLM-based Text-to-Speech},
+  author={Anonymous},
+  journal={arXiv},
+  year={2027}
+}
+```
+
+---
+
+# License
+
+本项目采用 MIT License。
+
+详见：
+
+```
+LICENSE
+```
+
+---
+
+# 致谢
+
+本项目基于以下优秀开源项目：
+
+- Montreal Forced Aligner (MFA)
+- Qwen3FA
+
+感谢所有作者和贡献者。
+
+---
+
+# 联系我们
+
+如有问题、Bug 或合作需求，请提交 Issue 或 Pull Request。
+
+---
+
+<div align="right">
+
+[⬆ 返回顶部](#wordvoice-data-pipeline-)
+
+</div>
+
+---
+
+# 🇺🇸 English
+
 ## Overview
 
 **WordVoice Data Pipeline** is the official annotation toolkit for constructing **large-scale, high-quality, word-level acoustic datasets** for controllable LLM-based Text-to-Speech (TTS).
 
-Unlike conventional forced-alignment pipelines that only provide timestamps, our framework integrates **dual-model alignment**, **boundary refinement**, and **multi-dimensional prosodic annotation**, enabling the automatic construction of datasets such as **WordVoice-5A**.
+Unlike conventional forced-alignment pipelines that only provide timestamps, our framework integrates:
 
-The pipeline is language-aware and currently supports both **Mandarin Chinese** (`zh`) and **English** (`en`).
+- Dual-model alignment
+- Boundary refinement
+- Multi-dimensional prosodic annotation
 
----
+to automatically construct datasets such as **WordVoice-5A**.
 
-## ✨ Features
-
-### 🎯 Accurate Word Alignment
-
-- Dual-model alignment using:
-  - **Montreal Forced Aligner (MFA)**
-  - **Qwen3FA**
-- Automatic consistency checking between two aligners
-- Confidence filtering for unreliable alignments
-
-### 🔍 Boundary Refinement
-
-- Loudness-based word boundary optimization
-- Removes excessive silence
-- Mitigates coarticulation bleeding
-- Produces more natural acoustic segments
-
-### 📊 Five-Dimensional Acoustic Annotation
-
-Each word is annotated with five complementary acoustic attributes:
-
-| Feature | Description |
-|----------|-------------|
-| ⏱️ Duration | Word-level duration |
-| ⏸️ Boundary | Five-level pause category (`b0`–`b4`) |
-| 🔊 Energy | Truncated & normalized syllable nucleus energy |
-| 🎵 Pitch | Core F0 extraction with bilateral truncation |
-| 📈 Tone | Seven-category prosodic morphology via 16-point polynomial regression |
-
-### 🌍 Bilingual Support
+The pipeline currently supports:
 
 - ✅ Mandarin Chinese (`zh`)
 - ✅ English (`en`)
 
 ---
 
+# ✨ Features
+
+## 🎯 Accurate Word Alignment
+
+Dual-model alignment using:
+
+- Montreal Forced Aligner (MFA)
+- Qwen3FA
+
+Additional mechanisms include:
+
+- Automatic consistency checking
+- Confidence filtering
+- Improved word boundary accuracy
+
+---
+
+## 🔍 Boundary Refinement
+
+Boundary optimization based on loudness analysis:
+
+- Remove excessive silence
+- Mitigate coarticulation bleeding
+- Produce more natural acoustic segments
+
+---
+
+## 📊 Five-Dimensional Acoustic Annotation
+
+Each word is annotated with:
+
+| Feature | Description |
+|----------|-------------|
+| ⏱ Duration | Word-level duration |
+| ⏸ Boundary | Five-level pause category (`b0`–`b4`) |
+| 🔊 Energy | Truncated & normalized syllable nucleus energy |
+| 🎵 Pitch | Core F0 extraction with bilateral truncation |
+| 📈 Tone | Seven-category prosodic morphology via 16-point polynomial regression |
+
+---
+
+## 🌍 Supported Languages
+
+| Language | Status |
+|-----------|--------|
+| Mandarin Chinese | ✅ |
+| English | ✅ |
+
+More languages will be supported in future releases.
+
+---
+
 # Installation
 
-Because **Montreal Forced Aligner (MFA)** depends on Kaldi and several C++ libraries, we strongly recommend installing it with **Conda**.
+Because **Montreal Forced Aligner (MFA)** depends on Kaldi and several C++ libraries, we strongly recommend installing it with Conda.
 
 ## Step 1. Create Environment
 
@@ -98,27 +337,25 @@ pip install -e .
 
 # Download Models
 
-Download all required models by running:
+Run
 
 ```bash
 bash download_models.sh
 ```
 
-This script automatically downloads all dependencies required by the pipeline, including the alignment models and related resources.
+to automatically download all required models and resources.
 
 ---
 
 # Run the Pipeline
 
-A complete example is provided in:
+A complete example is provided in
 
 ```text
 test_demo/
 ```
 
-The directory contains sample audio and transcription files that can be used to quickly verify the installation and reproduce the pipeline outputs.
-
-Example:
+Directory structure:
 
 ```text
 test_demo/
@@ -126,7 +363,7 @@ test_demo/
 └── json_files/
 ```
 
-To test the pipeline directly:
+Run:
 
 ```bash
 bash data.sh
@@ -134,21 +371,9 @@ bash data.sh
 
 ---
 
-
-# Supported Languages
-
-| Language | Status |
-|-----------|--------|
-| Mandarin Chinese | ✅ |
-| English | ✅ |
-
-Additional languages will be supported in future releases.
-
----
-
 # Citation
 
-If you use this project or the **WordVoice** dataset, please cite our paper.
+If you use this project or the **WordVoice** dataset, please cite:
 
 ```bibtex
 @article{wordvoice2026,
@@ -163,20 +388,20 @@ If you use this project or the **WordVoice** dataset, please cite our paper.
 
 # License
 
-This project is released under the MIT License.
+Released under the MIT License.
 
-See [LICENSE](LICENSE) for details.
+See `LICENSE` for details.
 
 ---
 
 # Acknowledgements
 
-This project builds upon several outstanding open-source projects, including:
+This project builds upon several outstanding open-source projects:
 
 - Montreal Forced Aligner (MFA)
 - Qwen3FA
 
-We sincerely thank the authors and contributors of these projects.
+We sincerely thank all authors and contributors.
 
 ---
 
@@ -191,5 +416,11 @@ For questions, bug reports, or collaboration opportunities, please open an Issue
 **WordVoice Data Pipeline**
 
 Building high-quality word-level acoustic annotations for controllable speech generation.
+
+</div>
+
+<div align="right">
+
+[⬆ Back to Top](#wordvoice-data-pipeline-)
 
 </div>
