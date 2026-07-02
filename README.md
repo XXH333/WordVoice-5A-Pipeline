@@ -81,9 +81,9 @@ conda install -c conda-forge montreal-forced-aligner=3.3.8 -y
 ## Step 3. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/wordvoice-data-pipeline.git
+git clone https://github.com/XXH333/WordVoice-5A-Pipeline.git
 
-cd wordvoice-data-pipeline
+cd WordVoice-5A-Pipeline-main
 ```
 
 ## Step 4. Install Dependencies
