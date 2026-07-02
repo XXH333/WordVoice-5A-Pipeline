@@ -3,8 +3,6 @@ import re
 from num2words import num2words
 from typing import Match
 from collections import defaultdict
-# from wetext import Normalizer
-# normalizer = Normalizer(lang="en", operator="tn")  # 英文文本的
 
 ORDINAL_MAP = {
     "1st": "first",
@@ -16,14 +14,12 @@ ORDINAL_MAP = {
     "31st": "thirty first"
 }
 
-# 最终修正后的正则表达式：更强大地处理整数、带逗号的整数和浮点数
 # 匹配逻辑: (包含数字和逗号的串 + 可选的小数部分) OR (只包含小数部分)
 NUMBER_REGEX = re.compile(r'\b[\d,]+(?:\.\d+)?\b|(?<!\w)\.\d+\b')
 
 def _float_to_words(number_str: str) -> str:
     """
     内部函数：将数字字符串转换为英文单词，并确保小数部分逐位朗读。
-    （保持与前一个版本一致，因为它逻辑上是正确的）
     """
     original_number = number_str 
     
@@ -121,18 +117,20 @@ def parse_control_text(input_text: str):
         prefix = control_pattern.sub("", input_text[:m.start()])
         word_idx = max(0, len(prefix.split()))
 
-        control_dict[key][word_idx] = value
+        if word_idx == 0:
+            continue
+        control_dict[key][word_idx-1] = value
 
     cleaned_text = " ".join(cleaned_words)
 
     return cleaned_text, dict(control_dict)
-    
+
 def english_text_normalization(text: str) -> str:
     """
     主函数：对英文文本进行数字正则化处理。
     """
     # ==========================================
-    # 新增 1：保护特殊插入符 (如 [*], [LAUGH] 等)
+    # 保护特殊插入符 (如 [*], [LAUGH] 等)
     # ==========================================
     tags = []
     def tag_replacer(match):
@@ -144,6 +142,7 @@ def english_text_normalization(text: str) -> str:
 
     # 匹配方括号及其中间的所有内容，并替换为纯字母占位符
     text = re.sub(r'\[.*?\]', tag_replacer, text)
+
     # ==========================================
 
     # 文本规范化
@@ -179,7 +178,7 @@ def english_text_normalization(text: str) -> str:
     normalized_text = re.sub(r"(?<!\w)'|'(?!\w)", "", normalized_text) # 处理单引号
 
     # ==========================================
-    # 新增 2：恢复特殊插入符
+    # 恢复特殊插入符
     # ==========================================
     for i, tag in enumerate(tags):
         alpha_idx = "".join(chr(97 + int(d)) for d in str(i))
@@ -201,10 +200,10 @@ if __name__ == "__main__":
         "The rate is just .015, which is low.",
         "The count is 5,000,000.",
         "The small number is 0.05 and the big one is 1,234,567.89.",
-        "Today is [bnd:b0]2025s. 3am, ab1345s,[eng: -1] 21312th"
+        "Today is [bnd:b0]2025s. 3am, ab1345s,[eng: -0.12] 21312th"
     ]
 
-    print("--- 原始文本 vs 规范化文本 (最终修复版) ---")
+    print("--- 原始文本 vs 规范化文本 ---")
     for sentence in test_sentences:
         normalized, control_dict = english_text_normalization(sentence) # mynorm
         # normalized = normalizer.normalize(sentence)  # wetext
