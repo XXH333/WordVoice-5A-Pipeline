@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](https://huggingface.co/datasets/XXH333/WordVoice-5A)
+[![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](#)
 [![DemoPage](https://img.shields.io/badge/DemoPage-WordVoice-yellow.svg)](https://xxh333.github.io/wordvoice-demo/)
 [![Dataset](https://img.shields.io/badge/Dataset-WordVoice--5A-green.svg)](#)
 [![Model](https://img.shields.io/badge/Model-WordVoice-red.svg)](#)
@@ -175,10 +175,6 @@ This project builds upon several outstanding open-source projects, including:
 
 - Montreal Forced Aligner (MFA)
 - Qwen3FA
-- Praat / Parselmouth
-- librosa
-- NumPy
-- SciPy
 
 We sincerely thank the authors and contributors of these projects.
 
