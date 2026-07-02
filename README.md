@@ -2,8 +2,6 @@
 
 <div align="center">
 
-<img src="picture/pipeline.png" width="95%" alt="WordVoice Pipeline"/>
-
 <br>
 
 [![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](#)
@@ -13,7 +11,9 @@
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Official linguistically-guided word-level annotation pipeline for the WordVoice dataset**
+**Official linguistically-guided word-level annotation pipeline for the WordVoice-5A dataset**
+
+<img src="picture/pipeline.png" width="95%" alt="WordVoice-5A Pipeline"/>
 
 </div>
 
