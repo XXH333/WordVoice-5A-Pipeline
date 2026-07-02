@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="pic/pipeline.png" width="95%" alt="WordVoice Pipeline"/>
+<img src="picture/pipeline.png" width="95%" alt="WordVoice Pipeline"/>
 
 <br>
 
