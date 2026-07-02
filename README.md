@@ -23,7 +23,7 @@
 
 # 🌏 Language
 
-**🇨🇳 中文 | 🇺🇸 English**
+**🇨🇳 中文 | EN English**
 
 [跳转到中文](#-中文说明) ｜ [Jump to English](#-english)
 
@@ -227,7 +227,7 @@ LICENSE
 
 ---
 
-# 🇺🇸 English
+# EN English
 
 ## Overview
 
