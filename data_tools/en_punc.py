@@ -86,50 +86,47 @@ def split_mixed_token(match):
 
 def parse_control_text(input_text: str):
     """
-    解析包含控制信息的文本。
-    键仅支持: eng, pit, dur, bnd, ton
-    值支持: 数字 (整数/浮点数) 或 单词 (字符串)
+    解析控制标签，并返回：
+        cleaned_text
+        control_dict
     """
-    # 正则表达式更新：
-    # (eng|pit|dur|bnd|ton) 限定了支持的 key
-    # ([a-zA-Z0-9\.\-]+) 匹配数字（含负号和小数点）或英文字母组合
-    control_pattern = re.compile(r"^\[\'(eng|pit|dur|bnd|ton)\'\:\s*([a-zA-Z0-9\.\-]+)\]$")
-    
-    cleaned_words = []
-    # 【修改1】内层数据结构改为 dict，以完美匹配推理代码的格式
-    control_dict = defaultdict(dict)
-    
-    tokens = input_text.strip().split()
-    current_word_idx = -1
-    
-    for token in tokens:
-        match = control_pattern.match(token)
-        if match:
-            key = match.group(1)
-            value_str = match.group(2)
-            
-            # 智能类型转换：尝试 int -> float -> str
-            try:
-                value = int(value_str)
-            except ValueError:
-                try:
-                    value = float(value_str)
-                except ValueError:
-                    value = value_str # 如果不是数字，则保留为单词字符串
-            
-            # 确定该控制信息作用的字索引
-            target_idx = max(0, current_word_idx)
-            # 【修改2】直接以字索引为键，控制参数为值
-            control_dict[key][target_idx] = value
-        else:
-            # 如果是普通字，索引 +1，并加入纯文本列表
-            current_word_idx += 1
-            cleaned_words.append(token)
-            
-    cleaned_text = " ".join(cleaned_words)
-    # 将 defaultdict 转回普通 dict 返回
-    return cleaned_text, dict(control_dict)
 
+    control_pattern = re.compile(
+        r"\[(eng|pit|dur|bnd|ton)\s*:\s*([-+]?(?:\d+(?:\.\d+)?)|[A-Za-z]\w*)\]"
+    )
+
+    control_dict = defaultdict(dict)
+
+    # 找出所有控制标签
+    matches = list(control_pattern.finditer(input_text))
+
+    # 删除控制标签后的文本
+    cleaned_text = control_pattern.sub("", input_text)
+    cleaned_words = cleaned_text.split()
+
+    # 计算每个控制标签对应的是第几个词
+    for m in matches:
+        key = m.group(1)
+        value_str = m.group(2)
+
+        try:
+            value = int(value_str)
+        except ValueError:
+            try:
+                value = float(value_str)
+            except ValueError:
+                value = value_str
+
+        # 标签之前有多少个词
+        prefix = control_pattern.sub("", input_text[:m.start()])
+        word_idx = max(0, len(prefix.split()))
+
+        control_dict[key][word_idx] = value
+
+    cleaned_text = " ".join(cleaned_words)
+
+    return cleaned_text, dict(control_dict)
+    
 def english_text_normalization(text: str) -> str:
     """
     主函数：对英文文本进行数字正则化处理。
