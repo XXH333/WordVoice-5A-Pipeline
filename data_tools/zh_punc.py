@@ -4,7 +4,6 @@ import cn2an
 from typing import Match
 from collections import defaultdict
 
-# 最终修正的正则表达式：
 # 匹配完整的数字串，包括整数、浮点数、带逗号的数字，以及以点结尾的数字 (如 12.)
 NUMBER_REGEX = re.compile(r'\b[\d,]+(?:\.\d*)?|(?<!\w)\.\d+\b')
 
@@ -82,11 +81,11 @@ def parse_control_text(input_text: str):
             except ValueError:
                 value = value_str
 
-        # 标签之前有多少个词
         prefix = control_pattern.sub("", input_text[:m.start()])
         word_idx = max(0, len(prefix.split()))
-
-        control_dict[key][word_idx] = value
+        if word_idx == 0:
+            continue
+        control_dict[key][word_idx-1] = value
 
     cleaned_text = " ".join(cleaned_words)
 
@@ -97,7 +96,7 @@ def chinese_text_normalization(text: str) -> str:
     主函数：对中文文本进行数字规范化处理，并保留特殊插入符。
     """
     # ==========================================
-    # 新增 1：保护特殊插入符 (如 [*], [LAUGH] 等)
+    # 保护特殊插入符 (如 [*], [LAUGH] 等)
     # ==========================================
     tags = []
     def tag_replacer(match):
@@ -128,7 +127,7 @@ def chinese_text_normalization(text: str) -> str:
     normalized_text = re.sub(r'([\u4e00-\u9fff])', r' \1 ', normalized_text) # 中文字符两边加空格
 
     # ==========================================
-    # 新增 2：恢复特殊插入符
+    # 恢复特殊插入符
     # ==========================================
     for i, tag in enumerate(tags):
         alpha_idx = "".join(chr(97 + int(d)) for d in str(i))
@@ -154,10 +153,10 @@ if __name__ == "__main__":
         "ok小数是0.05，大数是1,234,567.89 [BGM_START]。",
         "这是一个整-数12. (十二点) [*]",
         # 测试数字周围已经有空格的情况
-        "这里有 1000 个数字 [f0:1234]3.14 ."
+        "这里有 1000 个数字 [pit:1234]3.14 ."
     ]
 
-    print("--- 原始文本 vs 中文规范化文本 (包含特殊符号保护) ---")
+    print("--- 原始文本 vs 中文规范化文本 ---")
     for sentence in test_sentences:
         # 直接调用函数即可，后处理逻辑已封装在函数内
         normalized, control_dict = chinese_text_normalization(sentence)
