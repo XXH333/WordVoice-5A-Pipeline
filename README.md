@@ -25,7 +25,7 @@
 
 **🇨🇳 中文 | EN English**
 
-[跳转到中文](#-中文说明) ｜ [Jump to English](#-en-english)
+[跳转到中文](#-中文说明) ｜ [Jump to English](#-en-english-demonstration)
 
 </div>
 
@@ -227,7 +227,7 @@ LICENSE
 
 ---
 
-# EN English
+# EN English Demonstration
 
 ## Overview
 
