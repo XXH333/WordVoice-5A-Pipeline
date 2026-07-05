@@ -138,6 +138,7 @@ conda install -c conda-forge -y \
   liblapack=3.11.0=5_h47877c9_openblas \
   liblapacke=3.11.0=5_h6ae95b6_openblas
 ```
+若 mfa 相关的库下载失败，我们在 `data.sh` 里也提供了单模型的时间戳对齐方法。
 
 安装其他依赖:
 ```bash
@@ -342,6 +343,7 @@ conda install -c conda-forge -y \
   liblapack=3.11.0=5_h47877c9_openblas \
   liblapacke=3.11.0=5_h6ae95b6_openblas
 ```
+If the MFA-related packages fail to install, we also provide a single-model timestamp alignment method in `data.sh`
 
 Install additional dependencies:
 ```bash
