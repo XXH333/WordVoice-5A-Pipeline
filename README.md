@@ -111,7 +111,7 @@
 ## Step 1. 创建环境
 
 ```bash
-conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner=3.3.8 kalpy-kaldi=0.8.2
+conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner
 conda activate wordvoice-5a
 ```
 
@@ -301,7 +301,7 @@ Because **Montreal Forced Aligner (MFA)** depends on Kaldi and several C++ libra
 ## Step 1. Create Environment
 
 ```bash
-conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner=3.3.8 kalpy-kaldi=0.8.2
+conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner
 conda activate wordvoice-5a
 ```
 
