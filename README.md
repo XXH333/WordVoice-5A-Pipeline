@@ -113,6 +113,8 @@
 ```bash
 conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner
 conda activate wordvoice-5a
+
+
 ```
 
 ## Step 2. 克隆仓库
@@ -125,11 +127,25 @@ cd WordVoice-5A-Pipeline
 
 ## Step 3. 安装依赖
 
+更新 mfa 相关库:
+```bash
+conda install -c conda-forge -y \
+  kalpy=0.8.2 \
+  kaldi=5.5.1172=cuda129hd86434a_3 \
+  libopenblas=0.3.30=pthreads_h94d23a6_4 \
+  libblas=3.11.0=5_h4a7cf45_openblas \
+  libcblas=3.11.0=5_h0358290_openblas \
+  liblapack=3.11.0=5_h47877c9_openblas \
+  liblapacke=3.11.0=5_h6ae95b6_openblas
+```
+
+安装其他依赖:
 ```bash
 pip install -e .
 
 pip install qwen-asr
 ```
+
 
 ---
 
@@ -315,6 +331,19 @@ cd WordVoice-5A-Pipeline
 
 ## Step 3. Install Dependencies
 
+Update MFA-related packages:
+```bash
+conda install -c conda-forge -y \
+  kalpy=0.8.2 \
+  kaldi=5.5.1172=cuda129hd86434a_3 \
+  libopenblas=0.3.30=pthreads_h94d23a6_4 \
+  libblas=3.11.0=5_h4a7cf45_openblas \
+  libcblas=3.11.0=5_h0358290_openblas \
+  liblapack=3.11.0=5_h47877c9_openblas \
+  liblapacke=3.11.0=5_h6ae95b6_openblas
+```
+
+Install additional dependencies:
 ```bash
 pip install -e .
 
