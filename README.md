@@ -25,7 +25,7 @@
 
 **🇨🇳 中文 | EN English**
 
-[跳转到中文](#-中文说明) ｜ [Jump to English](#-english)
+[跳转到中文](#-中文说明) ｜ [Jump to English](#-en-english)
 
 </div>
 
