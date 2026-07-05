@@ -4,7 +4,7 @@ export CUDA_VISIBLE_DEVICES=0
 export PYTHONPATH=".:$PYTHONPATH"
 export PKUSEG_HOME=data_tools/spacy
 
-start_stage=3
+start_stage=1
 end_stage=3
 
 json_folder=./test_demo/json_files
