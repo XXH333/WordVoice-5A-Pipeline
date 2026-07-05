@@ -126,9 +126,9 @@ cd WordVoice-5A-Pipeline
 ## Step 3. 安装依赖
 
 ```bash
-pip install qwen-asr
-
 pip install -e .
+
+pip install qwen-asr
 ```
 
 ---
@@ -316,9 +316,9 @@ cd WordVoice-5A-Pipeline
 ## Step 3. Install Dependencies
 
 ```bash
-pip install qwen-asr
-
 pip install -e .
+
+pip install qwen-asr
 ```
 
 ---
