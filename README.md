@@ -25,13 +25,13 @@
 
 **🇨🇳 中文 | EN English**
 
-[跳转到中文](#-中文说明) ｜ [Jump to English](#en-english-demonstration)
+[跳转到中文](#cn-zh) ｜ [Jump to English](#en-english-demonstration)
 
 </div>
 
 ---
 
-# 🇨🇳 中文说明
+# <span id="cn-zh">🇨🇳 中文说明</span>
 
 ## 概述
 
@@ -87,8 +87,8 @@
 |------|------|
 | ⏱ Duration | 词持续时间 |
 | ⏸ Boundary | 五级停顿类别（b0–b4） |
-| 🔊 Energy | 截断归一化后的音节核心能量 |
-| 🎵 Pitch | 双侧截断后的核心 F0 |
+| 🔊 Energy | 提取词内 Top 50% 帧级均值以表征音节核心能量 |
+| 🎵 Pitch | 剔除首尾（掐头去尾保留核心 80%）后的词级核心 F0 |
 | 📈 Tone | 基于16点多项式拟合得到的七类韵律形态 |
 
 ---
@@ -146,7 +146,7 @@ pip install -e .
 
 pip install qwen-asr
 ```
-
+注：建议在安装完 pip 依赖后，先运行 `mfa version` 测试 MFA 环境是否仍然正常。
 
 ---
 
@@ -294,8 +294,8 @@ Each word is annotated with:
 |----------|-------------|
 | ⏱ Duration | Word-level duration |
 | ⏸ Boundary | Five-level pause category (`b0`–`b4`) |
-| 🔊 Energy | Truncated & normalized syllable nucleus energy |
-| 🎵 Pitch | Core F0 extraction with bilateral truncation |
+| 🔊 Energy | Top 50% frame-level energy average to capture syllable nucleus |
+| 🎵 Pitch |Core F0 extraction via bilateral truncation (central 80%) |
 | 📈 Tone | Seven-category prosodic morphology via 16-point polynomial regression |
 
 ---
@@ -343,7 +343,7 @@ conda install -c conda-forge -y \
   liblapack=3.11.0=5_h47877c9_openblas \
   liblapacke=3.11.0=5_h6ae95b6_openblas
 ```
-If the MFA-related packages fail to install, we also provide a single-model timestamp alignment method in `data.sh`
+If the MFA-related packages fail to install, we also provide a single-model timestamp alignment method in `data.sh`.
 
 Install additional dependencies:
 ```bash
@@ -351,6 +351,7 @@ pip install -e .
 
 pip install qwen-asr
 ```
+Note: It is recommended to run `mfa version` after installing pip dependencies to ensure the MFA environment is not broken.
 
 ---
 
