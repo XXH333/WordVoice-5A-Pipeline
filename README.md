@@ -111,17 +111,11 @@
 ## Step 1. 创建环境
 
 ```bash
-conda create -n wordvoice-5a python=3.10 -y
+conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner=3.3.8
 conda activate wordvoice-5a
 ```
 
-## Step 2. 安装 MFA
-
-```bash
-conda install -c conda-forge montreal-forced-aligner=3.3.8 -y
-```
-
-## Step 3. 克隆仓库
+## Step 2. 克隆仓库
 
 ```bash
 git clone https://github.com/yourusername/wordvoice-data-pipeline.git
@@ -129,7 +123,7 @@ git clone https://github.com/yourusername/wordvoice-data-pipeline.git
 cd wordvoice-data-pipeline
 ```
 
-## Step 4. 安装依赖
+## Step 3. 安装依赖
 
 ```bash
 pip install qwen-asr
@@ -307,29 +301,22 @@ Because **Montreal Forced Aligner (MFA)** depends on Kaldi and several C++ libra
 ## Step 1. Create Environment
 
 ```bash
-conda create -n wordvoice-5a python=3.10 -y
+conda create -n wordvoice-5a -c conda-forge python=3.10 montreal-forced-aligner=3.3.8
 conda activate wordvoice-5a
 ```
 
-## Step 2. Install MFA
-
-```bash
-conda install -c conda-forge montreal-forced-aligner=3.3.8 -y
-```
-
-## Step 3. Clone Repository
+## Step 2. Clone Repository
 
 ```bash
 git clone https://github.com/yourusername/wordvoice-data-pipeline.git
 
-cd wordvoice-data-pipeline
+cd WordVoice-5A-Pipeline
 ```
 
-## Step 4. Install Dependencies
+## Step 3. Install Dependencies
 
 ```bash
 pip install qwen-asr
-
 pip install -e .
 ```
 
