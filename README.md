@@ -118,9 +118,9 @@ conda activate wordvoice-5a
 ## Step 2. 克隆仓库
 
 ```bash
-git clone https://github.com/yourusername/wordvoice-data-pipeline.git
+git clone https://github.com/XXH333/WordVoice-5A-Pipeline.git
 
-cd wordvoice-data-pipeline
+cd WordVoice-5A-Pipeline
 ```
 
 ## Step 3. 安装依赖
@@ -308,7 +308,7 @@ conda activate wordvoice-5a
 ## Step 2. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/wordvoice-data-pipeline.git
+git clone https://github.com/XXH333/WordVoice-5A-Pipeline.git
 
 cd WordVoice-5A-Pipeline
 ```
@@ -317,6 +317,7 @@ cd WordVoice-5A-Pipeline
 
 ```bash
 pip install qwen-asr
+
 pip install -e .
 ```
 
