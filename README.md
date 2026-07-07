@@ -191,8 +191,11 @@ bash data.sh
 如果本项目对你的研究有所帮助，请引用：
 
 ```bibtex
-@article{wordvoice2026,
-
+@article{nie2026wordvoice,
+  title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS},
+  author={Sihang, Nie and Jinxin, Ji and Xiaofen, Xing and Deyi, Tuo and Chengbin, Jin and Jialong, Mai and Xiangmin, Xu},
+  journal={arXiv preprint arXiv:2607.},
+  year={2026}
 }
 ```
 
@@ -393,8 +396,11 @@ bash data.sh
 If you use this project or the **WordVoice** dataset, please cite:
 
 ```bibtex
-@article{wordvoice2026,
-
+@article{nie2026wordvoice,
+  title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS},
+  author={Sihang, Nie and Jinxin, Ji and Xiaofen, Xing and Deyi, Tuo and Chengbin, Jin and Jialong, Mai and Xiangmin, Xu},
+  journal={arXiv preprint arXiv:2607.},
+  year={2026}
 }
 ```
 
