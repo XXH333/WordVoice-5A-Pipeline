@@ -201,17 +201,6 @@ bash data.sh
 
 ---
 
-# License
-
-本项目采用 MIT License。
-
-详见：
-
-```
-LICENSE
-```
-
----
 
 # 致谢
 
@@ -403,14 +392,6 @@ If you use this project or the **WordVoice** dataset, please cite:
   year={2026}
 }
 ```
-
----
-
-# License
-
-Released under the MIT License.
-
-See `LICENSE` for details.
 
 ---
 
