@@ -192,10 +192,7 @@ bash data.sh
 
 ```bibtex
 @article{wordvoice2026,
-  title={WordVoice: Linguistically-Guided Word-Level Acoustic Dataset for Controllable LLM-based Text-to-Speech},
-  author={Anonymous},
-  journal={arXiv},
-  year={2027}
+
 }
 ```
 
@@ -397,10 +394,7 @@ If you use this project or the **WordVoice** dataset, please cite:
 
 ```bibtex
 @article{wordvoice2026,
-  title={WordVoice: Linguistically-Guided Word-Level Acoustic Dataset for Controllable LLM-based Text-to-Speech},
-  author={Anonymous},
-  journal={arXiv},
-  year={2027}
+
 }
 ```
 
