@@ -5,7 +5,7 @@
 <br>
 
 [![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](https://arxiv.org/abs/2607.06461)
-[![DemoPage](https://img.shields.io/badge/DemoPage-WordVoice-yellow.svg)](https://xxh333.github.io/wordvoice-demo/)
+[![Page](https://img.shields.io/badge/Page-Demo-yellow.svg)](https://xxh333.github.io/wordvoice-demo/)
 [![Dataset](https://img.shields.io/badge/Dataset-WordVoice--5A-green.svg)](https://huggingface.co/datasets/XXH333/WordVoice-5A)
 [![Model](https://img.shields.io/badge/Model-WordVoice-red.svg)](https://github.com/XXH333/WordVoice-main)
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
