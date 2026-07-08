@@ -4,7 +4,7 @@
 
 <br>
 
-[![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](#)
+[![Paper](https://img.shields.io/badge/Paper-arxiv_2026-blue.svg)](https://arxiv.org/abs/2607.06461)
 [![DemoPage](https://img.shields.io/badge/DemoPage-WordVoice-yellow.svg)](https://xxh333.github.io/wordvoice-demo/)
 [![Dataset](https://img.shields.io/badge/Dataset-WordVoice--5A-green.svg)](https://huggingface.co/datasets/XXH333/WordVoice-5A)
 [![Model](https://img.shields.io/badge/Model-WordVoice-red.svg)](https://github.com/XXH333/WordVoice-main)
@@ -191,11 +191,14 @@ bash data.sh
 如果本项目对你的研究有所帮助，请引用：
 
 ```bibtex
-@article{nie2026wordvoice,
-  title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS},
-  author={Sihang, Nie and Jinxin, Ji and Xiaofen, Xing and Deyi, Tuo and Chengbin, Jin and Jialong, Mai and Xiangmin, Xu},
-  journal={arXiv preprint arXiv:2607.},
-  year={2026}
+@misc{nie2026wordvoice,
+      title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS}, 
+      author={Sihang Nie and Jinxin Ji and Xiaofen Xing and Deyi Tuo and Chengbin Jin and Jialong Mai and Xiangmin Xu},
+      year={2026},
+      eprint={2607.06461},
+      archivePrefix={arXiv},
+      primaryClass={eess.AS},
+      url={https://arxiv.org/abs/2607.06461}, 
 }
 ```
 
@@ -385,11 +388,14 @@ bash data.sh
 If you use this project or the **WordVoice** dataset, please cite:
 
 ```bibtex
-@article{nie2026wordvoice,
-  title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS},
-  author={Sihang, Nie and Jinxin, Ji and Xiaofen, Xing and Deyi, Tuo and Chengbin, Jin and Jialong, Mai and Xiangmin, Xu},
-  journal={arXiv preprint arXiv:2607.},
-  year={2026}
+@misc{nie2026wordvoice,
+      title={WordVoice: Explicit and Decoupled Multi-Dimensional Word-Level Control for LLM-Based TTS}, 
+      author={Sihang Nie and Jinxin Ji and Xiaofen Xing and Deyi Tuo and Chengbin Jin and Jialong Mai and Xiangmin Xu},
+      year={2026},
+      eprint={2607.06461},
+      archivePrefix={arXiv},
+      primaryClass={eess.AS},
+      url={https://arxiv.org/abs/2607.06461}, 
 }
 ```
 
